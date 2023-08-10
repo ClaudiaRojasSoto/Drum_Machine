@@ -1,0 +1,21 @@
+#drum-machine {
+  width: 500px;
+  height: 300px;
+  margin: 50px auto;
+  border: 2px solid #333;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.drum-pads {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#display {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
