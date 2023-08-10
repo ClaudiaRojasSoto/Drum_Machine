@@ -118,14 +118,15 @@
 - `/src/index.js`: Main entry point of the JavaScript application.
 - `/src/App.js`: Top-level component of the application where components are rendered.
 - `/src/components`: Directory for React components.
-- `/src/components/Editor.js`: Component for the Editor
-- `/src/components/Previewer.js`: Folder for the Previewer.
+- `/src/components/Display.js`: Component for the Display
+- `/src/components/DrumMachine.js`: Folder for the DrumMachine.
+- `/src/components/DrumPad.js`: Folder for the Drumpad.
 - `/src/redux`: Directory for Redux management.
 - `/src/redux/store.js`: Redux store configuration.
 - `/src/redux/actions`: Folder for Redux actions.
-- `/src/redux/actions/markdownActions.js`: Actions for markdown management.
+- `/src/redux/DrumMachineActions`: Folder for DrumMachine actions management.
 - `/src/redux/reducers`: Folder for Redux reducers.
-- `/src/redux/reducers/markdownReducer.js`: Reducer for markdown management.
+- `/src/redux/reducers/DrumMachineReducer.js`: Reducer for DrumMachine reducer management.
 - `/public`: Contains the public files and assets of the application.
 - `/public/index.html`: Base HTML file of the application.
 - `/build`: Contains the generated production files.
