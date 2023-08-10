@@ -1,24 +1,36 @@
 import React from 'react';
-import Display from './Display';
+import PropTypes from 'prop-types';
 import DrumPad from './DrumPad';
 
 function DrumMachine({ clips, handlePlaySound, displayText }) {
-    return (
-      <div id="drum-machine">
-        <Display displayText={displayText} />
-        <div className="drum-pads">
-          {clips.map(clip => (
-            <DrumPad
-              key={clip.id}
-              clip={clip} // Aquí estamos pasando el clip completo
-              handlePlaySound={() => handlePlaySound(clip.keyTrigger)} // Asegúrate de pasar el keyTrigger aquí
-            />
-          ))}
-        </div>
+  return (
+    <div id="drum-machine">
+      <div className="display">{displayText}</div>
+      <div className="drum-pads">
+        {clips.map((clip) => (
+          <DrumPad
+            key={clip.id}
+            clip={clip}
+            handlePlaySound={
+            () => handlePlaySound(clip.keyTrigger)
+}
+          />
+        ))}
       </div>
-    );
-  }  
+    </div>
+  );
+}
 
-// Puedes definir PropTypes aquí si lo deseas
+DrumMachine.propTypes = {
+  clips: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      keyTrigger: PropTypes.string,
+      url: PropTypes.string,
+    }),
+  ).isRequired,
+  handlePlaySound: PropTypes.func.isRequired,
+  displayText: PropTypes.string.isRequired,
+};
 
 export default DrumMachine;
