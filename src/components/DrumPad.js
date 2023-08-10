@@ -1,20 +1,41 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { playSound } from '../redux/actions/drumMachineActions';
-import '../App.css'
+import PropTypes from 'prop-types';
+import '../App.css';
 
 const DrumPad = ({ clip, handlePlaySound }) => {
-    if (!clip) {
-      return null;
-    }
-  
-    return (
-      <div className="drum-pad" id={clip.id} onClick={handlePlaySound}>
-        {clip.keyTrigger}
-        <audio className="clip" id={clip.keyTrigger} src={clip.url}></audio>
-      </div>
-    );
-  };
-    
+  if (!clip) {
+    return null;
+  }
 
-export default connect(null, { playSound })(DrumPad);
+  const handleClick = (event) => {
+    event.preventDefault();
+    handlePlaySound();
+  };
+
+  return (
+    <div
+      className="drum-pad"
+      id={clip.id}
+      onClick={handleClick}
+      onKeyPress={handleClick}
+      role="button"
+      tabIndex={0}
+    >
+      {clip.keyTrigger}
+      <audio className="clip" id={clip.keyTrigger} src={clip.url}>
+        <track kind="captions" />
+      </audio>
+    </div>
+  );
+};
+
+DrumPad.propTypes = {
+  clip: PropTypes.shape({
+    id: PropTypes.string,
+    keyTrigger: PropTypes.string,
+    url: PropTypes.string,
+  }).isRequired,
+  handlePlaySound: PropTypes.func.isRequired,
+};
+
+export default DrumPad;
