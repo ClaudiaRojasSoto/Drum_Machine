@@ -5,8 +5,8 @@ import { playSound } from './redux/actions/drumMachineActions';
 
 function App() {
   const dispatch = useDispatch();
-  const displayText = useSelector(state => state.clipDescription);
-  const clips = useSelector(state => state.clips);
+  const displayText = useSelector((state) => state.clipDescription);
+  const clips = useSelector((state) => state.clips);
 
   const handlePlaySound = useCallback((clipKey) => {
     dispatch(playSound(clipKey));
@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
     const handleKeyPress = (e) => {
       const key = String.fromCharCode(e.keyCode);
-      const clip = clips.find(c => c.keyTrigger === key);
+      const clip = clips.find((c) => c.keyTrigger === key);
       if (clip) {
         handlePlaySound(clip.keyTrigger);
       }
